@@ -6,13 +6,16 @@
     --color-terminal: #292b36;
     --borde-redondo: 4px;
 }
-
+#nose{
+    color: #5af78d;
+}
 body{
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-    background-color: #5c4b7a;
+    background: #202020;
     color: aliceblue;
 }
 input, button{
@@ -20,7 +23,9 @@ input, button{
     outline: none;
 }
 main{
-    width: 60%;
+    text-align: center;
+    background: #4092;
+    width: 40%;
     padding: 25px;
     box-shadow: 8px 8px 35px 0px rgb(0 0 0 / 75%);
     border-radius: var(--borde-redondo);
@@ -43,7 +48,6 @@ h1{
 }
 #resultado{
     height: auto;
-
     color: #5af78d;
     padding: 0 10px 10px;
     border-bottom-left-radius: var(--borde-redondo);
