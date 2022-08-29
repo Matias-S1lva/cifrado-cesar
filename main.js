@@ -9,34 +9,46 @@ let texto = ""
 let indice = 0
 console.log(alfabeto.indexOf("P"));
 
-input.addEventListener("keydown", (e) => {
-    
-    if(  alfabeto.find(letra => letra === e.key.toUpperCase())  != undefined){
-        indice = alfabeto.indexOf(e.key.toUpperCase()) 
-        output.innerText = `${cifra}`
-        indice += cifra;
+function Iniciar(){
+    Rango();
+    input.addEventListener("keydown", (e) => {
         
-        if(indice >= alfabeto.length - 1){
-         indice = indice -( alfabeto.length - 1)
+        if( alfabeto.find(letra => letra === e.key.toUpperCase()) != undefined){
+           
+            indice = alfabeto.indexOf(e.key.toUpperCase()) 
+            output.innerText = `${cifra}`
+            indice += cifra;
+            
+            if(indice >= alfabeto.length - 1){
+            indice = indice -( alfabeto.length - 1)
+            }
+            resultado.innerHTML += ` ${alfabeto[indice].concat(" ")} `
         }
-    
-        resultado.innerHTML += ` ${alfabeto[indice]}
-                             
-        `
-        
-    }
-     else if(e.key === "Backspace"){
+        Backspace(e.key) 
+        Space(e.code)
+    })
+}
+function Backspace(k){
+     if(k === "Backspace"){
         texto = resultado.innerText;
         resultado.innerHTML = `
         ${texto.substring(0, texto.length - 1)}
         ` 
      }
-})
-
-
+}
+function Space(code){
+    texto = resultado.innerText
+    code === "Space"
+    ?
+    resultado.innerText = texto.concat(" _ ")
+    :
+    ""
+}
+function Rango(){
     rango.addEventListener('click', (e) => {
-        
          cifra = parseInt( e.target.value); 
     })
+}
+document.addEventListener("DOMContentLoaded", Iniciar())
 
 
