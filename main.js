@@ -34,6 +34,7 @@ function Backspace(k){
        ` 
     }
 }
+
 function Space(k){
    texto = resultado.innerText
    k === "Space"
@@ -42,37 +43,20 @@ function Space(k){
    :
    ""
 }
+
 function Rango(){
    rango.addEventListener('mouseup', (e) => {
         cifra = parseInt( e.target.value); 
-        output.innerText = `${cifra}`
    })
-}
-
-function KeyMobile(){
-    input.addEventListener("", (e) => {
-        if( alfabeto.find(letra => letra === e.key.toUpperCase()) != undefined){
-            indice = alfabeto.indexOf(e.key.toUpperCase()) 
-            indice += cifra;
-            
-            if(indice >= alfabeto.length - 1){
-            indice = indice -( alfabeto.length - 1)
-            }
-            resultado.innerHTML += ` ${alfabeto[indice].concat(" ")} `
-        }
-        Backspace(e.key) 
-        Space(e.code)
-    })
 }
 
 function Iniciar(){
     Binario();
-    Rango();
+    Rango()
     input.addEventListener("keydown", (e) => {
         
         if( alfabeto.find(letra => letra === e.key.toUpperCase()) != undefined){
             indice = alfabeto.indexOf(e.key.toUpperCase()) 
-            output.innerText = `${cifra}`
             indice += cifra;
             
             if(indice >= alfabeto.length - 1){
@@ -83,7 +67,6 @@ function Iniciar(){
         Backspace(e.key) 
         Space(e.code)
     })
-    KeyMobile()
 }
 
 document.addEventListener("DOMContentLoaded", Iniciar())
