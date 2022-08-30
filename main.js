@@ -34,25 +34,25 @@ function Backspace(k){
        ` 
     }
 }
-function Space(code){
+function Space(k){
    texto = resultado.innerText
-   code === "Space"
+   k === "Space"
    ?
    resultado.innerText += " _ "
    :
    ""
 }
 function Rango(){
-   rango.addEventListener('click', (e) => {
+   rango.addEventListener('mouseup', (e) => {
         cifra = parseInt( e.target.value); 
+        output.innerText = `${cifra}`
    })
 }
 
 function KeyMobile(){
-    input.addEventListener("touchend", (e) => {
+    input.addEventListener("", (e) => {
         if( alfabeto.find(letra => letra === e.key.toUpperCase()) != undefined){
             indice = alfabeto.indexOf(e.key.toUpperCase()) 
-            output.innerText = `${cifra}`
             indice += cifra;
             
             if(indice >= alfabeto.length - 1){
@@ -87,5 +87,3 @@ function Iniciar(){
 }
 
 document.addEventListener("DOMContentLoaded", Iniciar())
-
-
